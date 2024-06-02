@@ -4,7 +4,7 @@ import { FileUpload, FileUploadCover } from './FileUpload';
 import { MagickFormat } from '@imagemagick/magick-wasm';
 import { downloadImage, getMagickFormat, initializeMagick, readMagickImage } from '@/utils/imageMagickUtils';
 
-const allowedExtensions = ['.heic', '.png', '.jpg', '.jpeg', '.webp', '.tif', '.dng', '.nef', 'arw', '.cr2', '.cr3'];
+const allowedExtensions = ['.heic', '.png', '.jpg', '.jpeg', '.webp', '.tif', '.dng', '.nef', '.arw', '.cr2', '.cr3'];
 const MAX_FILE_SIZE = 1 * 1024 * 1024 * 1024; // 1GB limit
 
 interface SelectedFilesProps {
