@@ -12,11 +12,11 @@ interface SelectedFilesProps {
 }
 const SelectedFiles: React.FC<SelectedFilesProps> = (props) => {
 	return (
-		<div className="inline-block mx-auto">
-			<p className="mt-4 font-sm text-gray-600">{props.files.length} {props.files.length > 1 ? 'files' : 'file'} selected</p>
+		<div>
+			<p className="mt-4 text-right font-sm text-gray-600">{props.files.length} {props.files.length > 1 ? 'files' : 'file'} selected</p>
 			{
 				props.files.map((file, index) => (
-					<p key={index} className="text-sm text-gray-600">{file.name}</p>
+					<p key={index} className="text-sm text-right text-gray-600">{file.name}</p>
 				))
 			}
 		</div>
@@ -76,10 +76,13 @@ export const AnyImage2Jpg: React.FC<AnyImage2JpgProps> = (props) => {
 	return (
 		<div>
 			<FileUpload onFilesUpdate={onFilesUpdate} allowsAlert={true} allowedExtensions={allowedExtensions} />
-			<div className="mt-4 flex gap-4">
-				<SaveButton files={files} onConvert={onConvert} />
-			</div>
-			<SelectedFiles files={files} />
+			{
+				files.length > 0 && (
+					<div className="mt-4 flex flex-col items-end">
+						<SelectedFiles files={files} />
+						<SaveButton files={files} onConvert={onConvert} />
+					</div>)
+			}
 		</div>
 	);
 }
@@ -88,16 +91,12 @@ export const AnyImage2JpgCover: React.FC = () => {
 	return (
 		<div className={``}>
 			<FileUploadCover allowedExtensions={allowedExtensions} />
-			<div className="mt-4 flex gap-4">
-				<SaveButton files={[]} onConvert={() => { }} />
-			</div>
-			<SelectedFiles files={[]} />
 		</div>
 	)
 }
 
 function SaveButton(props: { files: File[], onConvert: () => void }) {
 	return (
-		<button disabled={props.files.length === 0} onClick={props.onConvert} className="mx-auto disabled:cursor-not-allowed text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Save as JPG</button>
+		<button disabled={props.files.length === 0} onClick={props.onConvert} className="mt-2 disabled:cursor-not-allowed text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Save as JPG</button>
 	)
 }

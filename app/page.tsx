@@ -9,7 +9,7 @@ export default function Home() {
         Fast, secure, ad-free. Please consider&nbsp;<a className="underline hover:text-purple-500" href="https://www.buymeacoffee.com/jayjin" target="_blank" rel="noopener noreferrer">buying me a coffee</a>&nbsp;to support the site.
       </h2>
       <AnyImage2Jpg />
-      <p className="mt-16 text-xs text-gray-600">Your file is not supported? Or any feedback, please&nbsp;<a className="underline hover:text-purple-500" href="https://forms.gle/Gm9FJ3iwbg9Sfjga7" target="_blank" rel="noopener noreferrer">let us know.</a></p>
+      <p className="mt-4 text-right text-xs text-gray-600">Files not supported? &nbsp;<a className="underline hover:text-purple-500" href="https://forms.gle/Gm9FJ3iwbg9Sfjga7" target="_blank" rel="noopener noreferrer">Share your feedback.</a></p>
     </main>
   );
 }
